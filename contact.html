@@ -45,27 +45,27 @@ Modification log: Added meta data, favicon, links to social media and menu in na
     <p>If there is something you'd like to contact us about, please fill out the form here and we'll get back to you with an email.<br/>Things labeled with * are required.</p>
 
     <!-- Contact Form -->
-<form id="contact">
+<form id="contact" method="post" action="thankyou.php">
     <fieldset id="contactInfo">
         <legend>Contact Information</legend>
         <div class="formRow">
             <label for="name">Name*</label>
-            <input name="contactName" id="name" type="text" required />
+            <input name="name" id="name" type="text" required />
         </div>
         <div class="formRow">
             <label for="number">Phone number</label>
-            <input name="conactNumber" id="number" type="text" placeholder="(000) 000-0000" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$" />
+            <input name="number" id="number" type="text" placeholder="(000) 000-0000" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$" />
         </div>
         <div class="formRow">
             <label for="mail">Email address*</label>
-            <input name="contactMail" id="mail" type="email" required />
+            <input name="mail" id="mail" type="email" required />
         </div>
     </fieldset>
     <fieldset id="contactComment">
         <legend>Comment</legend>
         <div class="formRow">
-            <label for="comment">Enter your comment here</label>
-            <textarea name="contactNote" id="comment"></textarea>
+            <label for="contactMessage">Enter your comment here</label>
+            <textarea name="contactMessage" id="contactMessage"></textarea>
         </div>
         <!-- Send or restart buttons -->
         <div id="send">
