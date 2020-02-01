@@ -4,15 +4,16 @@
     $contactPhone = filter_input(INPUT_POST, 'number');
     $contactMail = filter_input(INPUT_POST, 'mail');
     $contactMessage = filter_input(INPUT_POST, 'contactMessage');
+    $employeeID = rand(1, 20);
     
     // Validate inputs
-    if ($contactName == null || $contactMail == null || $contactMessage == null) {
+    if ($contactName == null || $contactMail == null ||
+        $contactMessage === null) {
         $error = "Invalid input data. Check all fields and try again.";
-        //include('error.html');
         echo "Form Data Error: " . $error; 
         exit();
         } else {
-            $dsn = 'mysql:host=localhost;dbname=larrytables';
+            $dsn = 'mysql:host=localhost;dbname=larryTables';
             $username = 'root';
             $password = 'Pa$$w0rd';
 
@@ -21,18 +22,18 @@
 
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
-                /* include('database_error.php'); */
                 echo "DB Error: " . $error_message; 
                 exit();
             }
-            // Add contact info to database  
+            // Add the product to the database  
             $query = 'INSERT INTO contact
-                         ( contactName, contactPhone, contactMail, contactMessage)
+                         (employeeID, contactName, contactPhone, contactMail, contactMessage)
                       VALUES
-                         (:contactName, :contactPhone, :contactMail, :contactMessage)';
+                         (:employeeID, :contactName, :contactPhone, :contactMail, :contactMessage)';
             $statement = $db->prepare($query);
+            $statement->bindValue(':employeeID', $employeeID);
             $statement->bindValue(':contactName', $contactName);
-            $statement->bindValue('contactPhone', $contactPhone);
+            $statement->bindValue(':contactPhone', $contactPhone);
             $statement->bindValue(':contactMail', $contactMail);
             $statement->bindValue(':contactMessage', $contactMessage);
             $statement->execute();
