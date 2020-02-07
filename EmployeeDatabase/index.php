@@ -4,6 +4,17 @@ require('model/database.php');
 require('model/contact_db.php');
 require('model/employee_db.php');
 
+
+if(filter_input(INPUT_POST, 'action') === null){
+$adminUsername = filter_input(INPUT_POST, 'username');
+$adminPassword = filter_input(INPUT_POST, 'password');
+
+if ($adminUsername != 'root' || $adminPassword != 'Pa$$w0rd'){
+    echo "Please enter the correct username and password.";
+    exit();
+}
+}
+
 //Detect actions on the form
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
