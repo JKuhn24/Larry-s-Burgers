@@ -4,8 +4,8 @@ require('model/database.php');
 require('model/contact_db.php');
 require('model/employee_db.php');
 
-
-if(filter_input(INPUT_POST, 'action') === null){
+//check credentials
+if (filter_input(INPUT_POST, 'username') != NULL || filter_input(INPUT_POST, 'password') != NULL){
 $adminUsername = filter_input(INPUT_POST, 'username');
 $adminPassword = filter_input(INPUT_POST, 'password');
 
@@ -14,15 +14,16 @@ if ($adminUsername != 'root' || $adminPassword != 'Pa$$w0rd'){
     exit();
 }
 }
-
 //Detect actions on the form
 $action = filter_input(INPUT_POST, 'action');
+//list contacts
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action == NULL) {
         $action = 'list_contacts';
     }
 }
+
 //list contacts according to action
 if ($action == 'list_contacts') {
     $employeeID = filter_input(INPUT_GET, 'employeeID', 
