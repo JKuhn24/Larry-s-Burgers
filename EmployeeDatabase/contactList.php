@@ -19,22 +19,40 @@ Modification log: Page created
     <meta name="keywords" content="food,hamburgers,rastaurant,family" />
     <link href="../css/Style.css" rel="stylesheet">
     <link href="css/Print.css" rel="stylesheet" media="print">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x`6" href="images/favicon-16x16.png">
-    <link rel="manifest" href="images/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x`6" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
 
 </head>
 <main>
-    <h1>Contact List</h1>
+    <body>
+<header>
+     <!-- Header -->
+    <h1>Larry's American Burgers</h1>
+<nav>
+    <!-- Navigation -->
+    <a id ="navicon" href="#"><img src="images/iconfinder_menu-alt_134216.png" alt=""/></a>
+<ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About Us</a></li>
+    <li><a href="../menu.html">Menu</a></li>
+    <li><a href="../times.html">Business Hours</a></li>
+    <li><a href="../contact.html">Contact Us</a></li>
+    <li><a href="../login.html">Admin</a></li>
+</ul>
+</nav>
+</header>
+    <body>
+        <h1 id="contactHeader" style="padding-top: 1em;">Contact List</h1>
 
     <section>
         <!-- Display list of employees to sort contacts by -->
         <?php foreach ($categories as $category) : ?>
             <li>
-            <a class="employee" href="?employeeID=<?php echo $category['employeeID']; ?>" name="action">
-                <?php echo $category['employeeName']; ?>
-            </a>
+                    <a href="?employeeID=<?php echo $category['employeeID']; ?>" name="action">
+                    <?php echo $category['employeeName']; ?>
+                    </a>
             </li>
         <?php endforeach; ?>
         <!-- display a table of contacts -->
@@ -67,5 +85,6 @@ Modification log: Page created
         </table> 
         <p>Select your name to see who we'd like you to respond to</p>     
     </section>
+    </body>
 </main>
 </html>
