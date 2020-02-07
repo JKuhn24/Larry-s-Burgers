@@ -2,7 +2,7 @@
 
 // Get categories for table
 function get_categories() {
-    global $db;
+    $db = Database::getDB();
     $query = 'SELECT * FROM employee
               ORDER BY employeeID';
     $statement = $db->prepare($query);
@@ -11,7 +11,7 @@ function get_categories() {
 }
 // get the names of the categories
 function get_category_name($employeeID) {
-    global $db;
+    $db = Database::getDB();
     $query = 'SELECT * FROM employee
               WHERE employeeID = :employeeID';    
     $statement = $db->prepare($query);
